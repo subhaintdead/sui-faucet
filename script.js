@@ -22,6 +22,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         const potatoes = await fetch('/api/skibidi', {
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ address, token })
         });
@@ -38,7 +39,7 @@ form.addEventListener('submit', async (e) => {
         }
     } catch (err) {
         button.disabled = false;
-        button.textcontent = 'Give me gas!';
+        button.textContent = 'Give me gas!';
         showStatus('network error, try again', 'error');
 
     }
