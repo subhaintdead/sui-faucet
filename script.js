@@ -36,16 +36,17 @@ form.addEventListener('submit', async (e) => {
             button.textContent = 'Give me gas!';
             showStatus(data.error || 'something went wrong.', 'error');
         }
-         catch (err) {
-            button.disabled = false;
-            button.textcontent = 'Give me gas!';
-            showStatus('network')
-        }
+    } catch (err) {
+        button.disabled = false;
+        button.textcontent = 'Give me gas!';
+        showStatus('network error, try again', 'error');
 
     }
 
+});
 
+function showStatus(msg, type) {
+    status.textContent = msg;
+    status.className = type;
+    status.style.display = msg ? 'block' : 'none';
 }
-
-
-)
