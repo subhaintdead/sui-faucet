@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sui testnet faucet</title>
+
+    <script src="" async defer></script> <!--cloudflare turnstile, gonna do these later-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>Sui testnet faucet</h1>
+
+        <form id="faucet-form">
+            <label for="address">Your Wallet Address</label>
+
+            <input type="text" id="address" placeolder="0x..." spellcheck="false" autocomplete="off" />
+
+            <div class="turnstile">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAAFCbUuQwJxbTZVuq">
+
+                </div>
+            </div>
+
+            <button type="submit" id="sbutton">Give me gas!</button>
+        </form>
+
+
+
+
+        <script src="script.js"></script>
+</body>
+
+</html>

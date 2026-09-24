@@ -1,0 +1,12 @@
+:root {
+    --bg: #eff6ff;
+    --red: #ef4444;
+    --text: #0a193c;
+    --whitish: #eeeeee;
+    --button-gray: #8b8b8b;
+    --text-gray: #8d9cb4;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
