@@ -1,12 +1,95 @@
 :root {
-    --bg: #eff6ff;
+    --bg: #e8f2ff;
     --red: #ef4444;
     --text: #0a193c;
-    --whitish: #eeeeee;
+    --whitish: #e4eaee;
     --button-gray: #8b8b8b;
     --text-gray: #8d9cb4;
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+.card {
+    background-color: var(--whitish);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    padding: 32px;
+}
+
+h1 {
+    color: var(--text);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+
+}
+
+label {
+    display: block;
+    color: var(--text-gray);
+    font-size: 1rem;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text);
+    outline: none;
+}
+
+
+input:focus {
+    border-color: #a0b4d0;
+}
+
+.turnstile {
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: var(--text);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 4px;
+}
+
+button:disabled {
+    background: var(--button-gray);
+    cursor: not-allowed;
+}
+
+
+
+#status {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+#status.success {
+    color: var(--text);
+}
+
+#status.error {
+    color: var(--red);
 }
