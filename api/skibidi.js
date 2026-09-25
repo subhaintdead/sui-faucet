@@ -1,4 +1,5 @@
-import { SuiClient, getFullnodeUrl } from '@mysten/sui/client';
+import { SuiGraphQLClient } from '@mysten/sui/graphql';
+import { graphql } from '@mysten/sui/graphql/schemes/latest';
 import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { Transaction } from '@mysten/sui/transactions';
 import { Redis } from '@upstash/redis';
@@ -8,7 +9,10 @@ const redis = new Redis({
     token: process.env.KV_REST_API_TOKEN,
 });
 
-const client = new SuiClient({ url: getFullnodeUrl('testnet') });
+const client = new SuiGraphQLClient({
+    url: 'https://sui-testnet.mystenlabs.com/graphql',
+
+});
 
 const cooldown = 6.7 * 60 * 60;
 const amount = 10_000_000; // equals to 0.01 sui, enough for gas for multiple transactions
@@ -65,9 +69,11 @@ export default async function handler(req, res) {
         const [coin] = tx.splitCoins(tx.gas, [amount]);
         tx.transferObjects([coin], address);
 
-        const result = await client.signAndExecuteTransaction({
-            signer: keypair,
-            transaction: tx,
+        const result = await client.executeTransactionBlock({
+            transactionBlock: await tx.build({ client }),
+            signature: await keypair.signTransactionBlock(
+                await tx.build({ client })
+            )
         });
         await redis.set(rateLimitKey, Math.floor(Date.now() / 1000), {
             ex: Math.ceil(cooldown),
