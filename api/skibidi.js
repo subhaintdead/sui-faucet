@@ -1,4 +1,4 @@
-import { SuiClient } from '@mysten/sui/client';
+import { SuiGrpcClient } from '@mysten/sui/grpc';
 import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { Transaction } from '@mysten/sui/transactions';
 import { Redis } from '@upstash/redis';
@@ -8,7 +8,8 @@ const redis = new Redis({
     token: process.env.KV_REST_API_TOKEN,
 });
 
-const client = new SuiClient({
+const client = new SuiGrpcClient({
+    network: 'testnet',
     url: 'https://fullnode.testnet.sui.io:443',
 
 });
@@ -68,12 +69,12 @@ export default async function handler(req, res) {
         const [coin] = tx.splitCoins(tx.gas, [amount]);
         tx.transferObjects([coin], address);
 
-        const result = await client.executeTransactionBlock({
-            transactionBlock: await tx.build({ client }),
-            signature: await keypair.signTransactionBlock(
-                await tx.build({ client })
-            )
+        const result = await client.signAndExecuteTransaction({
+            transaction: tx,
+            client,
         });
+
+
         await redis.set(rateLimitKey, Math.floor(Date.now() / 1000), {
             ex: Math.ceil(cooldown),
 

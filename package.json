@@ -2,7 +2,7 @@
     "name": "sui-faucet",
     "version": "1.0.0",
     "dependencies": {
-        "@mysten/sui": "^1.0.0",
+        "@mysten/sui": "^2.0.0",
         "@upstash/redis": "^1.34.0"
     }
 }
