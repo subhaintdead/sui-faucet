@@ -23,3 +23,12 @@ git clone https://github.com/subhaintdead/sui-faucet
 cd sui-faucet
 ```
 and then if youre running it locally, you may add your credentials in a `.env` file, and change the `data-sitekey` from `index.html`
+
+## dependencies
+@mysten/sui/grpc
+
+@mysten/sui/keypairs/ed25519
+
+@mysten/sui/transactions
+
+@upstash/redis
