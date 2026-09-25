@@ -80,3 +80,5 @@ export default async function handler(req, res) {
     }
 }
 
+
+//as i suspected, json rpc is deprecated on fullnode(somethign has to be deprecated every time)
