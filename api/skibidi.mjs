@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const keypair = Ed25519Keypair.fromSecretKey(process.env.SUI_PRIVATE_KEY);
+        const keypair = Ed25519Keypair.fromSecretKey(process.env.SUI_PRIVATE_KEY.trim);
 
         const tx = new Transaction();
         const [coin] = tx.splitCoins(tx.gas, [amount]);
