@@ -1,5 +1,4 @@
-import { SuiGraphQLClient } from '@mysten/sui/graphql';
-import { graphql } from '@mysten/sui/graphql/schemes/latest';
+import { SuiClient } from '@mysten/sui/client';
 import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { Transaction } from '@mysten/sui/transactions';
 import { Redis } from '@upstash/redis';
@@ -9,8 +8,8 @@ const redis = new Redis({
     token: process.env.KV_REST_API_TOKEN,
 });
 
-const client = new SuiGraphQLClient({
-    url: 'https://sui-testnet.mystenlabs.com/graphql',
+const client = new SuiClient({
+    url: 'https://fullnode.testnet.sui.io:443',
 
 });
 
@@ -86,5 +85,3 @@ export default async function handler(req, res) {
     }
 }
 
-
-//as i suspected, json rpc is deprecated on fullnode(somethign has to be deprecated every time)
