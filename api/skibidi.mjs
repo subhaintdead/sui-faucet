@@ -69,7 +69,7 @@ export default async function handler(req, res) {
         const [coin] = tx.splitCoins(tx.gas, [amount]);
         tx.transferObjects([coin], address);
 
-        const result = await client.signAndExecuteTransaction({
+        const result = await keypair.signAndExecuteTransaction({
             transaction: tx,
             client,
         });
@@ -82,7 +82,7 @@ export default async function handler(req, res) {
         return res.status(200).json({ txHash: result.digest });
     } catch (err) {
         console.error(err);
-        return res.status(500).json({ error: 'transaction failed, faucet might be lowkey dry' })
+        return res.status(500).json({ error: 'transaction failed, faucet is ded' })
     }
 }
 

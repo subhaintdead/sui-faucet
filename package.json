@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "type": "module",
     "dependencies": {
-        "@mysten/sui": "^2.0.0",
+        "@mysten/sui": "^2.31.3",
         "@upstash/redis": "^1.34.0"
     }
 }
