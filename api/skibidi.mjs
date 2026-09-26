@@ -10,7 +10,7 @@ const redis = new Redis({
 
 const client = new SuiGrpcClient({
     network: 'testnet',
-    url: 'https://fullnode.testnet.sui.io:443',
+    baseUrl: 'https://fullnode.testnet.sui.io:443',
 
 });
 
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const keypair = Ed25519Keypair.fromSecretKey(process.env.SUI_PRIVATE_KEY.trim);
+        const keypair = Ed25519Keypair.fromSecretKey(process.env.SUI_PRIVATE_KEY.trim());
 
         const tx = new Transaction();
         const [coin] = tx.splitCoins(tx.gas, [amount]);
@@ -85,4 +85,3 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'transaction failed, faucet is ded' })
     }
 }
-
