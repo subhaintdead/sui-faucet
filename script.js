@@ -51,3 +51,5 @@ function showStatus(msg, type) {
     status.className = type;
     status.style.display = msg ? 'block' : 'none';
 }
+
+//there are still stuff to do, like dealing with the txhash
