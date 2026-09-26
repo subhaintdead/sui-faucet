@@ -79,7 +79,7 @@ export default async function handler(req, res) {
             ex: Math.ceil(cooldown),
 
         });
-        return res.status(200).json({ txHash: result.digest });
+        return res.status(200).json({ txHash: result.Transaction.digest });
     } catch (err) {
         console.error(err);
         return res.status(500).json({ error: 'transaction failed, faucet is ded' })
