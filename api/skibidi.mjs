@@ -14,7 +14,7 @@ const client = new SuiGrpcClient({
 
 });
 
-const cooldown = 6.7 * 60 * 60;
+const cooldown = 6 //6.7 * 60 * 60;
 const amount = 10_000_000; // equals to 0.01 sui, enough for gas for multiple transactions
 
 
