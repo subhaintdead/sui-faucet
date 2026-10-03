@@ -32,3 +32,5 @@ and then if youre running it locally, you may add your credentials in a `.env` f
 @mysten/sui/transactions
 
 @upstash/redis
+
+**AI USAGE: ai has been used to debug and for code suggestions. this was a small project with not much polish as i had to ship fast**
