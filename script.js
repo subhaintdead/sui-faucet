@@ -33,7 +33,7 @@ form.addEventListener('submit', async (e) => {
             button.textContent = 'sent!';
             showStatus(`SUI sent! Tx: ${data.txHash}`, 'success');
             status.style.display ="block";
-            status.innerHTML =`sent! <a href="https://suiscan.xyz/testnet/tx/${data.txhash}" target="_blank">view transaction</a>` ;
+            status.innerHTML =`sent! <a href="https://suiscan.xyz/testnet/tx/${data.txHash}" target="_blank">view transaction</a>` ;
 
         } else {
             button.disabled = false;
