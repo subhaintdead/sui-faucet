@@ -35,11 +35,13 @@ form.addEventListener('submit', async (e) => {
         } else {
             button.disabled = false;
             button.textContent = 'Give me gas!';
+            turnstile.reset();
             showStatus(data.error || 'something went wrong.', 'error');
         }
     } catch (err) {
         button.disabled = false;
         button.textContent = 'Give me gas!';
+        turnstile.reset();
         showStatus('network error, try again', 'error');
 
     }
