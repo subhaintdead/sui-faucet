@@ -32,6 +32,8 @@ form.addEventListener('submit', async (e) => {
         if (potatoes.ok) {
             button.textContent = 'sent!';
             showStatus(`SUI sent! Tx: ${data.txHash}`, 'success');
+            status.style.display ="block";
+
         } else {
             button.disabled = false;
             button.textContent = 'Give me gas!';
