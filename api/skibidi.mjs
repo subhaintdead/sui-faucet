@@ -2,6 +2,8 @@ import { SuiGrpcClient } from '@mysten/sui/grpc';
 import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { Transaction } from '@mysten/sui/transactions';
 import { Redis } from '@upstash/redis';
+import { isValidSuiAddress } from '@mysten/sui/utils';
+import { normalizeSuiAddress } from '@mysten/sui/utils';
 
 const redis = new Redis({
     url: process.env.KV_REST_API_URL,
@@ -26,9 +28,11 @@ export default async function handler(req, res) {
 
     const { address, token } = req.body;
 
-    if (!address || !address.startsWith('0x') || address.length < 64) {
-        return res.status(400).json({ error: 'invalid sui address' });
-    }
+    if (typeof address !== 'string' || !/^0x[0-9a-fA-F]{64}$/.test(address)) {
+        return res.status(400).json({error: "invalid sui address"})
+    };
+
+   
 
     const turnstileRes = await fetch(
         'https://challenges.cloudflare.com/turnstile/v0/siteverify',

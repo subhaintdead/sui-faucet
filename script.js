@@ -9,7 +9,7 @@ form.addEventListener('submit', async (e) => {
 
     const token = document.querySelector('[name=cf-turnstile-response]')?.value;
 
-    if (!address.startsWith('0x') || address.length < 64) {
+    if (!/^0x[0-9a-fA-F]{64}$/.test(address)) {
         showStatus('gng that aint a valid sui address', 'error');
         return;
     } if (!token) {
