@@ -2,8 +2,7 @@ import { SuiGrpcClient } from '@mysten/sui/grpc';
 import { Ed25519Keypair } from '@mysten/sui/keypairs/ed25519';
 import { Transaction } from '@mysten/sui/transactions';
 import { Redis } from '@upstash/redis';
-import { isValidSuiAddress } from '@mysten/sui/utils';
-import { normalizeSuiAddress } from '@mysten/sui/utils';
+
 
 const redis = new Redis({
     url: process.env.KV_REST_API_URL,

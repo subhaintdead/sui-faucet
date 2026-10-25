@@ -46,7 +46,7 @@ input {
     border: 1px solid #dddddd;
     border-radius: 8px;
     font-size: 1rem;
-    cursor: pointer;
+    cursor: text;
     color: var(--text);
     outline: none;
 }
@@ -79,6 +79,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
+button:hover:not(:disabled) {opacity: 0. 9}
 
 
 #status {
