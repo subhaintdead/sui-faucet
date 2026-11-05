@@ -19,6 +19,14 @@ click "Give me gas!"
 
 and there you go.
 
+## dont have a sui wallet? use slush(easiest, gui-based)
+
+for computer, install the slush wallet extension from chrome extension store. for android/ios, download slush wallet from play/app store.
+
+open slush, set up your wallet. then go to profile, advanced, change network from mainnet to testnet.
+
+in the top of the profile page, you'll see your wallet address, click to copy it. now you have your wallet address!
+
 
 ## how to reproduce this setup?
 you'll need node downloaded, a vercel account, upstash redis for db(vercel has this), a cloudflare account for the turnstile keys, and a sui wallet funded with testnet sui(feel free to farm sui from my faucet lol)
